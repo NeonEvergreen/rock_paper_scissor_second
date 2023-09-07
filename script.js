@@ -57,11 +57,27 @@ function playMatch(playerSelection, computerSelection){
 
 function game(){
     const game_matches = 5;
+    const tally = {"player" : 0, "computer" : 0};
     for(let i=0; i<5; i++){
-        let player_choice = prompt("Rock, Paper or Scissor??");
+        let default_choice = getComputerChoice();
+        let player_choice = null;
+        while(player_choice == null){
+            player_choice = prompt("Rock, Paper or Scissor??",default_choice);
+        }
         let computer_choice = getComputerChoice();
         console.log(`player : ${player_choice}, computer : ${computer_choice}`);
         let result = playMatch(player_choice, computer_choice);
-        console.log("RESULT :: ", result);
+        updateTally(result, tally);
+    }
+    console.log("FINAL RESULT :: ", tally);
+}
+
+
+function updateTally(result, tally){
+    if(result == "Congratulations! The player wins!!" || result == "OH! Its a tie!!"){
+        tally["player"] += 1; 
+    }
+    if(result == "You Lose! The computer wins!!" || result == "OH! Its a tie!!"){
+        tally["computer"] += 1; 
     }
 }
