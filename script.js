@@ -52,6 +52,16 @@ function playMatch(playerSelection, computerSelection){
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "scissor"){
         return tieMessage();
     }
-    
+}
 
+
+function game(){
+    const game_matches = 5;
+    for(let i=0; i<5; i++){
+        let player_choice = prompt("Rock, Paper or Scissor??");
+        let computer_choice = getComputerChoice();
+        console.log(`player : ${player_choice}, computer : ${computer_choice}`);
+        let result = playMatch(player_choice, computer_choice);
+        console.log("RESULT :: ", result);
+    }
 }
