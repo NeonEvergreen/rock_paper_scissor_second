@@ -1,15 +1,21 @@
 "use strict";
 
 function playerWonMessage(){
-    console.log("Congratulations! The player wins!!");
+    const message = "Congratulations! The player wins!!";
+    console.log(message);
+    return message;
 }
 
 function computerWonMessage(){
-    console.log("You Lose! The computer wins!!");
+    const message = "You Lose! The computer wins!!";
+    console.log(message);
+    return message;
 }
 
 function tieMessage(){
-    console.log("OH! Its a tie!!");
+    const message = "OH! Its a tie!!";
+    console.log(message);
+    return message;
 }
 
 
@@ -20,31 +26,31 @@ function getComputerChoice(){
 
 function playMatch(playerSelection, computerSelection){
     if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "rock"){
-        tieMessage();
+        return tieMessage();
     }
     if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock"){
-        playerWonMessage();
+        return playerWonMessage();
     }
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "rock"){
-        computerWonMessage();
+        return computerWonMessage();
     }
     if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper"){
-        computerWonMessage();
+        return computerWonMessage();
     }
     if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "paper"){
-        tieMessage();
+        return tieMessage();
     }
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "paper"){
-        playerWonMessage();
+        return playerWonMessage();
     }
     if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissor"){
-        playerWonMessage();
+        return playerWonMessage();
     }
     if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissor"){
-        computerWonMessage();
+        return computerWonMessage();
     }
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "scissor"){
-        tieMessage();
+        return tieMessage();
     }
     
 
