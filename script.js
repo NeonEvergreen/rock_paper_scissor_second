@@ -1,18 +1,18 @@
 "use strict";
 
-function playerWonMessage(){
+function declarePlayerWon(){
     const message = "Congratulations! The player wins!!";
     console.log(message);
     return message;
 }
 
-function computerWonMessage(){
+function declareComputerWon(){
     const message = "You Lose! The computer wins!!";
     console.log(message);
     return message;
 }
 
-function tieMessage(){
+function declareTie(){
     const message = "OH! Its a tie!!";
     console.log(message);
     return message;
@@ -26,42 +26,47 @@ function getComputerChoice(){
 
 function playMatch(playerSelection, computerSelection){
     if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "rock"){
-        return tieMessage();
+        return declareTie();
     }
     if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock"){
-        return playerWonMessage();
+        return declarePlayerWon();
     }
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "rock"){
-        return computerWonMessage();
+        return declareComputerWon();
     }
     if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper"){
-        return computerWonMessage();
+        return declareComputerWon();
     }
     if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "paper"){
-        return tieMessage();
+        return declareTie();
     }
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "paper"){
-        return playerWonMessage();
+        return declarePlayerWon();
     }
     if(playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissor"){
-        return playerWonMessage();
+        return declarePlayerWon();
     }
     if(playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissor"){
-        return computerWonMessage();
+        return declareComputerWon();
     }
     if(playerSelection.toLowerCase() == "scissor" && computerSelection.toLowerCase() == "scissor"){
-        return tieMessage();
+        return declareTie();
     }
 }
 
 
-function game(){
+function playGame(){
+    //Initiates multiple matches and determines final winner by printing tally
     const game_matches = 5;
     const tally = {"player" : 0, "computer" : 0};
     for(let i=0; i<5; i++){
         let default_choice = getComputerChoice();
         let player_choice = null;
         while(player_choice == null){
+            /**
+             Allows a randomly determined choice for players if they dont want
+            to input
+            **/
             player_choice = prompt("Rock, Paper or Scissor??",default_choice);
         }
         let computer_choice = getComputerChoice();
